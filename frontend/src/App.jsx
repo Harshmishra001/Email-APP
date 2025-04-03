@@ -74,7 +74,8 @@ function App() {
         alert(`An error occurred: ${error.response.data.error || error.response.statusText}`);
       } else if (error.request) {
         // No response received from the server
-        alert('No response received from the server. Please check your network connection.');
+        console.error('No response received:', error.request);
+        alert('No response received from the server. Please check your network connection or server status.');
       } else {
         // Other errors
         alert(`An error occurred: ${error.message}`);
