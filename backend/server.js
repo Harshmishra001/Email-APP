@@ -12,8 +12,7 @@ const PORT = 3000; // Ensure this matches the frontend .env configuration
 const allowedOrigins = [
   process.env.DEPLOYED_FRONTEND_URL, // Deployed frontend URL
   'http://localhost:5173', // Local development URL
-  'http://localhost:5180', // Add this to match the frontend's origin
-  'http://localhost:3000', // Add this if frontend runs on port 3000
+  'https://email-app-xi-cyan.vercel.app', // Add deployed frontend URL
 ].filter(Boolean);
 
 app.use(cors({
@@ -26,6 +25,8 @@ app.use(cors({
   },
   credentials: true,
 }));
+
+app.options('*', cors()); // Handle preflight requests
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

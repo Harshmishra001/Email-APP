@@ -56,7 +56,7 @@ function App() {
   const scheduleEmail = async () => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/emails/schedule`, // Use VITE_API_URL
+        `${import.meta.env.VITE_API_URL}/api/emails/schedule`,
         formData,
         {
           headers: { 'Content-Type': 'application/json' },
@@ -69,11 +69,16 @@ function App() {
         alert(`Failed to schedule email: ${response.data.error}`);
       }
     } catch (error) {
-      alert(
-        `An error occurred while scheduling the email: ${
-          error.response?.data?.error || error.message
-        }`
-      );
+      if (error.response) {
+        // Server responded with a status other than 2xx
+        alert(`An error occurred: ${error.response.data.error || error.response.statusText}`);
+      } else if (error.request) {
+        // No response received from the server
+        alert('No response received from the server. Please check your network connection.');
+      } else {
+        // Other errors
+        alert(`An error occurred: ${error.message}`);
+      }
     }
   };
 
