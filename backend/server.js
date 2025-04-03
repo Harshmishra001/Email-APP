@@ -12,7 +12,8 @@ const PORT = 3000; // Ensure this matches the frontend .env configuration
 const allowedOrigins = [
   process.env.DEPLOYED_FRONTEND_URL, // Deployed frontend URL
   'http://localhost:5173', // Local development URL
-  'https://email-app-xi-cyan.vercel.app', // Add deployed frontend URL
+  'https://email-app-xi-cyan.vercel.app', // Previous deployed frontend URL
+  'https://email-app-git-master-harsh-kumar-mishras-projects.vercel.app', // New deployed frontend URL
 ].filter(Boolean);
 
 app.use(cors({

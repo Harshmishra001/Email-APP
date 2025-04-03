@@ -71,6 +71,9 @@ function App() {
     } catch (error) {
       if (error.response) {
         // Server responded with a status other than 2xx
+        console.error('Error response data:', error.response.data);
+        console.error('Error response status:', error.response.status);
+        console.error('Error response headers:', error.response.headers);
         alert(`An error occurred: ${error.response.data.error || error.response.statusText}`);
       } else if (error.request) {
         // No response received from the server
@@ -78,6 +81,7 @@ function App() {
         alert('No response received from the server. Please check your network connection or server status.');
       } else {
         // Other errors
+        console.error('Error message:', error.message);
         alert(`An error occurred: ${error.message}`);
       }
     }
