@@ -1,51 +1,60 @@
 # Email App
 
-This application allows users to log in, create nodes in a flow diagram, and schedule emails with a delay.
+This application allows users to create nodes in a flow diagram, and schedule emails with a delay.
 
 ## Features
-- **Login**: Authenticate using a username and password.
 - **Node Management**: Add and manage nodes in a flow diagram.
 - **Email Scheduling**: Schedule emails with a specified delay.
 
 ## Setup
-1. Clone the repository:
+
+### Backend
+1. Navigate to the `backend` directory:
    ```bash
-   git clone <repository-url>
-   cd email-app
+   cd backend
    ```
 
-2. Navigate to the `frontend` directory:
-   ```bash
-   cd frontend
-   ```
-
-3. Install dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-4. Create a `.env` file in the `frontend` directory and add the following:
+3. Create a `.env` file in the `backend` directory and add the following:
    ```
-   VITE_API_URL=<your_api_url>
+   MONGO_URI=<your_mongo_uri>
+   EMAIL_USER=<your_email>
+   EMAIL_PASS=<your_email_password>
    ```
 
-5. Start the development server:
+4. Start the backend server:
+   ```bash
+   npm start
+   ```
+
+### Frontend
+1. Navigate to the `frontend` directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the `frontend` directory and add the following:
+   ```
+   VITE_API_URL=http://localhost:3000
+   ```
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
-6. Open the app in your browser at `http://localhost:5173`.
+5. Open the app in your browser at `http://localhost:5173`.
 
 ## Usage
-
-### Login
-1. Enter your username and password in the login form.
-2. Click the **Login** button.
-3. Upon successful login, a token will be stored for scheduling emails.
-
-### Logout
-1. Click the **Logout** button to clear your session.
-2. You will need to log in again to schedule emails.
 
 ### Schedule an Email
 1. Fill in the recipient's email, subject, body, and delay in the email form.
@@ -67,12 +76,10 @@ email-app/
 ├── backend/
 │   ├── config/
 │   │   ├── agenda.js
-│   │   ├── auth.js
-│   │   └── nodemailer.js
+│   │   ├── nodemailer.js
 │   ├── controllers/
 │   │   └── emailController.js
 │   ├── routes/
-│   │   ├── authRoutes.js
 │   │   └── emailRoutes.js
 │   ├── .env
 │   ├── .gitignore
