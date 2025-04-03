@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.flow-container {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.schedule-email-btn {
+  margin: 10px auto;
+  display: block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.schedule-email-btn:hover {
+  background-color: #0056b3;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Reduced gap */
+  margin: 10px auto; /* Reduced margin */
+  max-width: 350px; /* Reduced width */
+}
+
+.email-form input,
+.email-form textarea {
+  width: 100%;
+  padding: 8px; /* Reduced padding */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 13px; /* Slightly smaller font size */
+}
+
+.email-form textarea {
+  resize: vertical;
+  height: 80px; /* Reduced height */
+}
+
+.auth-form {
+  display: none; /* Remove auth form styles */
+}
+
+.toggle-auth {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.toggle-auth:hover {
+  color: #0056b3;
+}
